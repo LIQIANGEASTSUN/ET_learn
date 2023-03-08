@@ -121,6 +121,8 @@ namespace ET
                 if (obj is ISystemType iSystemType)
                 {
                     OneTypeSystems oneTypeSystems = this.typeSystems.GetOrCreateOneTypeSystems(iSystemType.Type());
+                    UnityEngine.Debug.LogError("1111:" + type.Name + "  fullName:" + type.FullName + "    " + obj.ToString() + "    xx:" + obj.GetType().Name + "   cc:" + iSystemType.GetType() + "     " + iSystemType.SystemType());
+
                     oneTypeSystems.Map.Add(iSystemType.SystemType(), obj);
                     InstanceQueueIndex index = iSystemType.GetInstanceQueueIndex();
                     if (index > InstanceQueueIndex.None && index < InstanceQueueIndex.Max)
@@ -165,7 +167,8 @@ namespace ET
                 {
                     throw new Exception($"type not is callback: {type.Name}");
                 }
-                
+
+                UnityEngine.Debug.LogError("2222:" + type.Name + "  fullName:" + type.FullName);
                 object[] attrs = type.GetCustomAttributes(typeof(InvokeAttribute), false);
                 foreach (object attr in attrs)
                 {
@@ -176,10 +179,16 @@ namespace ET
                     }
                     
                     InvokeAttribute invokeAttribute = attr as InvokeAttribute;
-                    
+                    UnityEngine.Debug.LogError("3333:" + iInvoke.Type + "  " + attr.GetType().Name + "  fullName:" + attr.GetType().FullName + "   " + invokeAttribute.ToString() + "   type:" + invokeAttribute.Type);
+
                     try
                     {
+                        if (dict.ContainsKey(invokeAttribute.Type))
+                        {
+                            int c = 0;
+                        }
                         dict.Add(invokeAttribute.Type, obj);
+                        int a = 0;
                     }
                     catch (Exception e)
                     {

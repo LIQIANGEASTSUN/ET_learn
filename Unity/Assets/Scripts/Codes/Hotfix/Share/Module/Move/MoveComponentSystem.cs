@@ -22,7 +22,7 @@ namespace ET
                 }
             }
         }
-    
+
         [ObjectSystem]
         public class DestroySystem: DestroySystem<MoveComponent>
         {
