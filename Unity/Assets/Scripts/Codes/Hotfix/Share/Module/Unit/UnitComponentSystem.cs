@@ -1,4 +1,6 @@
-﻿namespace ET
+﻿using System.Data;
+
+namespace ET
 {
 	[ObjectSystem]
 	public class UnitComponentAwakeSystem : AwakeSystem<UnitComponent>
