@@ -68,6 +68,8 @@ namespace ET
                         continue;
                     }
 
+                    Log.Error(messageType.Name + "     opcode:" + opcode + "  sceneType:" + messageHandlerAttribute.SceneType);
+
                     MessageDispatcherInfo messageDispatcherInfo = new (messageHandlerAttribute.SceneType, iMHandler);
                     self.RegisterHandler(opcode, messageDispatcherInfo);
                 }
@@ -92,6 +94,11 @@ namespace ET
             {
                 Log.Error($"消息没有处理: {opcode} {message}");
                 return;
+            }
+
+            if (opcode == 10018)
+            {
+                int a = 0;
             }
 
             SceneType sceneType = session.DomainScene().SceneType;

@@ -147,6 +147,7 @@ namespace ET
                     EventAttribute eventAttribute = attr as EventAttribute;
 
                     Type eventType = obj.Type;
+                    Log.Error("EventType:" + eventType.Name);
 
                     EventInfo eventInfo = new(obj, eventAttribute.SceneType);
 
